@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.echo_app.MainActivity">
+
+    <!--
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+     -->
+
+    <item
+        android:id="@+id/previous_edit_texts"
+        android:orderInCategory="100"
+        android:title="@string/display_previous_edit_texts"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/remove_previous"
+        android:orderInCategory="150"
+        android:title="@string/remove_previous_edit_texts"
+        app:showAsAction="never"
+        />
+
+
+</menu>

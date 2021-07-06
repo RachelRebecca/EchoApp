@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Echo App</string>
+    <string name="action_settings">Settings</string>
+    <string name="instructions">Please enter any text into the line below:</string>
+    <string name="hint_user_input">Your text goes here…</string>
+    <string name="extended_fab_text">CLICK HERE FOR ECHO</string>
+    <string name="about_message">Rachel Nemesure Echo App</string>
+    <string name="display_previous_edit_texts">Display old entries</string>
+    <string name="remove_previous_edit_texts"> Don\'t show old entries</string>
+</resources>

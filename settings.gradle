@@ -1,0 +1,2 @@
+rootProject.name = "Echo App"
+include ':app'

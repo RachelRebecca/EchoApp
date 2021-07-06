@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/echo_background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <!-- Instructions telling user to type in text into the EditText line -->
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_view_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/instructions"
+        />
+
+    <!-- EditText, accepting the user's text input -->
+    <EditText
+        android:id="@+id/userInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edit_text_margin"
+        android:layout_marginTop="@dimen/space_between"
+        android:ems="15"
+        android:hint="@string/hint_user_input"
+        android:gravity="center"
+        android:inputType="textLongMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructions"
+        tools:ignore="Autofill" />
+
+    <!-- Another TextView, which initially shows an about message until clicking on FAB (code for
+    FAB found in Activity Main), which changes TextView's display to the text the user enters -->
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_between"
+        android:layout_marginHorizontal="@dimen/text_view_margin"
+        android:text="@string/about_message"
+        android:textStyle="italic"
+        android:textColor="@color/transparent_black"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInput" />
+
+    <!-- This TextView only appears if "show old entries" is selected from menu. -->
+    <TextView
+        android:id="@+id/only_with_menu"
+        android:layout_width="359dp"
+        android:layout_height="186dp"
+        android:layout_marginTop="42dp"
+        android:gravity="center_horizontal"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/output" />
+</androidx.constraintlayout.widget.ConstraintLayout>
