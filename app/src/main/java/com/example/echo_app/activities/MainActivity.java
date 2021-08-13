@@ -1,7 +1,9 @@
-package com.example.echo_app;
+package com.example.echo_app.activities;
 
 import android.os.Bundle;
 
+import com.example.echo_app.R;
+import com.example.echo_app.model.UserInput;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private UserInput userInputList;
     private TextView menuView;
+    private boolean mPrefShowOldEntries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
                     userInputList.addUserInput(userInput);
                     output.setText(userInput.getText());
 
-                    if (menuView != null && menuView.getText().length() > 0){
+                    if (mPrefShowOldEntries && menuView != null)
+                    {
                         menuView.setText(userInputList.toString());
                     }
                 }
@@ -76,16 +80,50 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.previous_edit_texts) {
-            menuView.setText(userInputList.toString());
-            menuView.setMovementMethod(new ScrollingMovementMethod());
-            return true;
-        }
-        else if (id == R.id.remove_previous) {
-            menuView.setText("");
+
+        if (id == R.id.action_toggle_show_previous)
+        {
+            boolean toggle = toggleMenuItem(item);
+            showEntries(toggle);
+            mPrefShowOldEntries = item.isChecked();
             return true;
         }
 
+        else if (id == R.id.about)
+        {
+          showAbout();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clearList(MenuItem item)
+    {
+        menuView.setText("");
+        userInputList.clearUserEntries();
+    }
+
+    private boolean toggleMenuItem(MenuItem item)
+    {
+        item.setChecked(!item.isChecked());
+        return item.isChecked();
+    }
+
+    private void showEntries(boolean toggledValue)
+    {
+        if (toggledValue)
+        {
+            menuView.setText(userInputList.toString());
+            menuView.setMovementMethod(new ScrollingMovementMethod());
+        }
+        else
+        {
+            menuView.setText("");
+        }
+    }
+
+    private void showAbout()
+    {
+
     }
 }

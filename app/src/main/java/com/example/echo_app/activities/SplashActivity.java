@@ -1,4 +1,4 @@
-package com.example.echo_app;
+package com.example.echo_app.activities;
 
 import android.content.Intent;
 import android.os.Build;

@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-nodpi-v23/splash_background.xml" value="0.14074074074074075" />
         <entry key="app/src/main/res/drawable-nodpi/splash_background.xml" value="0.14074074074074075" />
-        <entry key="app/src/main/res/menu/menu_main.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>
   </component>

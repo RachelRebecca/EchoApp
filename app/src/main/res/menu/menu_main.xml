@@ -1,27 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.echo_app.MainActivity">
+    tools:context="com.example.echo_app.activities.MainActivity">
 
-    <!--
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-     -->
 
     <item
-        android:id="@+id/previous_edit_texts"
-        android:orderInCategory="100"
+        android:id="@+id/clear_previous"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:onClick="clearList"
+        android:title="@string/clear_previous_entries"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/action_toggle_show_previous"
+        android:checkable="true"
         android:title="@string/display_previous_edit_texts"
         app:showAsAction="never" />
     <item
-        android:id="@+id/remove_previous"
-        android:orderInCategory="150"
-        android:title="@string/remove_previous_edit_texts"
-        app:showAsAction="never"
-        />
-
+        android:id="@+id/about"
+        android:title="@string/about"
+        app:showAsAction="never" />
 
 </menu>

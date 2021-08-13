@@ -7,4 +7,9 @@
     <string name="about_message">Rachel Nemesure Echo App</string>
     <string name="display_previous_edit_texts">Display old entries</string>
     <string name="remove_previous_edit_texts"> Don\'t show old entries</string>
+    <string name="clear_previous_entries">Clear previous entries</string>
+    <string name="about">About</string>
+    <string name="about_dialog_message"></string>
+    <string name="about_dialog_title">About Echo App</string>
+
 </resources>
