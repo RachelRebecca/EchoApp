@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         When user clicks on FAB, the contents of output variable (initially the about message)
-        changes to what is stored in userInput. If no text has been entered, the Snackbar appears,
+        changes to what is stored in userInput. If no text has been entered, the SnackBar appears,
         displaying an error message telling users to enter text before clicking on FAB.
         */
 

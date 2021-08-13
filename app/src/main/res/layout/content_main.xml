@@ -46,7 +46,7 @@
         android:layout_marginHorizontal="@dimen/text_view_margin"
         android:text="@string/about_message"
         android:textStyle="italic"
-        android:textColor="@color/transparent_black"
+        android:textColor="@color/transparentTextColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
