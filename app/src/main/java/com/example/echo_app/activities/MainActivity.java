@@ -6,12 +6,14 @@ import com.example.echo_app.R;
 import com.example.echo_app.model.UserInput;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 
 import com.example.echo_app.databinding.ActivityMainBinding;
+import com.example.echo_app.lib.Utils;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,25 +26,48 @@ public class MainActivity extends AppCompatActivity {
     private TextView menuView;
     private boolean mPrefShowOldEntries;
 
+    private final String SAVE_ECHO_LIST_KEY = "ECHO_LIST";
+    private final String SAVE_LIST_PREF = "LIST_PREF";
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putString(SAVE_ECHO_LIST_KEY, UserInput.getJSONStringFromEchoListObject(userInputList));
+        outState.putBoolean(SAVE_LIST_PREF, mPrefShowOldEntries);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        userInputList = UserInput.getEchoListObjectFromJSON(savedInstanceState.getString(SAVE_ECHO_LIST_KEY));
+        mPrefShowOldEntries = savedInstanceState.getBoolean(SAVE_LIST_PREF);
+        setUpPrefShowOldEntries(savedInstanceState);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.toolbar);
-
         userInputList = new UserInput();
         menuView = findViewById(R.id.only_with_menu);
         EditText userInput = findViewById(R.id.userInput); //the EditText (user's input)
         TextView output = findViewById(R.id.output); //the second TextView
 
-        /*
-        When user clicks on FAB, the contents of output variable (initially the about message)
-        changes to what is stored in userInput. If no text has been entered, the SnackBar appears,
-        displaying an error message telling users to enter text before clicking on FAB.
-        */
+        setUpPrefShowOldEntries(savedInstanceState);
+
+        setUpFAB(userInput, output);
+    }
+
+    private void setUpFAB(EditText userInput, TextView output) {
+    /*
+    When user clicks on FAB, the contents of output variable (initially the about message)
+    changes to what is stored in userInput. If no text has been entered, the SnackBar appears,
+    displaying an error message telling users to enter text before clicking on FAB.
+    */
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +88,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setUpPrefShowOldEntries(Bundle savedInstanceState)
+    {
+        if (savedInstanceState == null) {
+            mPrefShowOldEntries = true;
+        }
+        else
+        {
+            if (!mPrefShowOldEntries)
+            {
+                menuView.setText("");
+            }
+            else
+            {
+                menuView.setText(userInputList.toString());
+            }
+        }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_toggle_show_previous).setChecked(mPrefShowOldEntries);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -124,6 +173,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAbout()
     {
-
+        Utils.showInfoDialog(this, R.string.about_dialog_title, R.string.about_dialog_message);
     }
 }

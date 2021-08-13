@@ -9,7 +9,8 @@
     <string name="remove_previous_edit_texts"> Don\'t show old entries</string>
     <string name="clear_previous_entries">Clear previous entries</string>
     <string name="about">About</string>
-    <string name="about_dialog_message"></string>
+    <string name="about_dialog_message">Enter a word or phrase, and the app will echo it back!
+        \nYou have the option to see your old entries, and to clear all old entries.</string>
     <string name="about_dialog_title">About Echo App</string>
 
 </resources>
