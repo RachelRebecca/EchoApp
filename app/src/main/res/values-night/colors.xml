@@ -7,4 +7,5 @@
     <color name="backgroundDefaultColor">@android:color/background_dark</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#ffffff</color>
+    <color name="textBackgroundColor">@color/primaryDarkColor</color>
 </resources>

@@ -3,4 +3,7 @@
     <dimen name="edit_text_margin">5dp</dimen>
     <dimen name="text_view_margin">15dp</dimen>
     <dimen name="space_between">55dp</dimen>
+    <dimen name="old_entries_top">42dp</dimen>
+    <dimen name="old_entries_width">300dp</dimen>
+    <dimen name="old_entries_height">200dp</dimen>
 </resources>

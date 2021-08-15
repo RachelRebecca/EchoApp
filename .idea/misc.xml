@@ -6,6 +6,9 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-nodpi-v23/splash_background.xml" value="0.14074074074074075" />
         <entry key="app/src/main/res/drawable-nodpi/splash_background.xml" value="0.14074074074074075" />
+        <entry key="app/src/main/res/layout-land/content_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.2465277777777778" />
+        <entry key="app/src/main/res/layout/main_include_toolbar.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>

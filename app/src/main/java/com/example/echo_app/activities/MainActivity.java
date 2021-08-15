@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        setSupportActionBar(binding.toolbar);
+        setSupportActionBar(binding.includeToolbar.toolbar);
         userInputList = new UserInput();
         menuView = findViewById(R.id.only_with_menu);
         EditText userInput = findViewById(R.id.userInput); //the EditText (user's input)
