@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity
                     if (mPrefShowOldEntries && menuView != null)
                     {
                         menuView.setText(userInputList.toString());
+                        menuView.setMovementMethod(new ScrollingMovementMethod());
                     }
                 }
             }
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity
         if (toggledValue)
         {
             menuView.setText(userInputList.toString());
-            menuView.setMovementMethod(new ScrollingMovementMethod());
+           // menuView.setMovementMethod(new ScrollingMovementMethod());
         }
         else
         {
