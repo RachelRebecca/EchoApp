@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/instructions" />
+        android:text="@string/instructions"
+        android:freezesText="true"/>
 
     <!-- EditText, accepting the user's text input -->
     <EditText
@@ -43,7 +44,8 @@
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instructions"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        android:freezesText="true"/>
 
     <!-- Another TextView, which initially shows an about message until clicking on FAB (code for
     FAB found in Activity Main), which changes TextView's display to the text the user enters -->
@@ -60,7 +62,8 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userInput" />
+        app:layout_constraintTop_toBottomOf="@+id/userInput"
+        android:freezesText="true"/>
 
     <!-- This TextView only appears if "show old entries" is selected from menu. -->
     <ScrollView
@@ -80,6 +83,7 @@
             android:scrollbarAlwaysDrawVerticalTrack="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:freezesText="true"/>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -173,6 +173,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAbout()
     {
-        Utils.showInfoDialog(this, R.string.about_dialog_title, R.string.about_dialog_message);
+        Utils.showInfoDialog(MainActivity.this, R.string.about_dialog_title, R.string.about_dialog_message);
     }
 }
