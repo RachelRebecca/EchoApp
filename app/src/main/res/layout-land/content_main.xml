@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/include_content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/echo_background"
-    android:id="@+id/include_content_main"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.constraintlayout.widget.Guideline
@@ -24,11 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_view_margin"
+        android:freezesText="true"
+        android:text="@string/instructions"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/instructions"
-        android:freezesText="true"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- EditText, accepting the user's text input -->
     <EditText
@@ -38,14 +37,14 @@
         android:layout_margin="@dimen/edit_text_margin"
         android:layout_marginTop="@dimen/space_between"
         android:ems="15"
-        android:hint="@string/hint_user_input"
+        android:freezesText="true"
         android:gravity="center"
+        android:hint="@string/hint_user_input"
         android:inputType="textLongMessage"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instructions"
-        tools:ignore="Autofill"
-        android:freezesText="true"/>
+        tools:ignore="Autofill" />
 
     <!-- Another TextView, which initially shows an about message until clicking on FAB (code for
     FAB found in Activity Main), which changes TextView's display to the text the user enters -->
@@ -53,37 +52,44 @@
         android:id="@+id/output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_between"
         android:layout_marginHorizontal="@dimen/text_view_margin"
-        android:text="@string/about_message"
-        android:textStyle="italic"
-        android:textColor="@color/transparentTextColor"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="@dimen/space_between"
+        android:freezesText="true"
         android:gravity="center"
+        android:text="@string/about_message"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/transparentTextColor"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userInput"
-        android:freezesText="true"/>
+        app:layout_constraintTop_toBottomOf="@+id/userInput" />
 
     <!-- This TextView only appears if "show old entries" is selected from menu. -->
     <ScrollView
         android:layout_width="@dimen/old_entries_width"
         android:layout_height="@dimen/old_entries_height"
         android:layout_marginTop="@dimen/old_entries_top"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarFadeDuration="0"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fillViewport="true">
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/only_with_menu"
             android:layout_width="@dimen/old_entries_width"
             android:layout_height="@dimen/old_entries_height"
+            android:fillViewport="true"
+            android:freezesText="true"
             android:gravity="center_horizontal"
-            android:scrollbars="vertical"
             android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="0"
+            android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            android:freezesText="true"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

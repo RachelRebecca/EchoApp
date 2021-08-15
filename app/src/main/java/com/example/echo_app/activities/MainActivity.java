@@ -19,7 +19,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     private ActivityMainBinding binding;
     private UserInput userInputList;
@@ -30,14 +31,16 @@ public class MainActivity extends AppCompatActivity {
     private final String SAVE_LIST_PREF = "LIST_PREF";
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState)
+    {
         outState.putString(SAVE_ECHO_LIST_KEY, UserInput.getJSONStringFromEchoListObject(userInputList));
         outState.putBoolean(SAVE_LIST_PREF, mPrefShowOldEntries);
         super.onSaveInstanceState(outState);
     }
 
     @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState)
+    {
         userInputList = UserInput.getEchoListObjectFromJSON(savedInstanceState.getString(SAVE_ECHO_LIST_KEY));
         mPrefShowOldEntries = savedInstanceState.getBoolean(SAVE_LIST_PREF);
         setUpPrefShowOldEntries(savedInstanceState);
@@ -46,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -62,14 +66,16 @@ public class MainActivity extends AppCompatActivity {
         setUpFAB(userInput, output);
     }
 
-    private void setUpFAB(EditText userInput, TextView output) {
+    private void setUpFAB(EditText userInput, TextView output)
+    {
     /*
     When user clicks on FAB, the contents of output variable (initially the about message)
     changes to what is stored in userInput. If no text has been entered, the SnackBar appears,
     displaying an error message telling users to enter text before clicking on FAB.
     */
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        binding.fab.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 if (userInput.getText().length() == 0 || userInput.getText() == null){
@@ -109,20 +115,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
         menu.findItem(R.id.action_toggle_show_previous).setChecked(mPrefShowOldEntries);
         return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
