@@ -53,7 +53,7 @@ public class UserInput
 
         for (String editText : userInputList)
         {
-            builder.append(editText).append("\n");
+            builder.append(editText).append("\n\n");
         }
 
         return builder.toString();
